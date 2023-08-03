@@ -14,16 +14,10 @@ CAT_FEATURES = [
 
 
 def extract_floor(floor_info: str) -> int:
-    """층수 컬럼에서 실제 층수만 추출합니다.
-
-    현재 층수 정보는 'X out of Y'로 되어 있습니다.
-    여기에서 X만 추출하여 정수로 반환합니다.
-    Upper basement, Lower basement, Ground out 등은 모두 0층으로 변환합니다.
-
-    Args:
-        floor_info (str): 층수 정보
-    """
-    # TODO
+    return_floor = floor_info.split()[0]
+    if not return_floor.isdigit():
+        return_floor = 0
+    return return_floor
 
 
 def floor_extractor(df: pd.DataFrame, col: str) -> pd.DataFrame:
